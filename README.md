@@ -1,4 +1,4 @@
-# `@hollowverse/utils`
+# `@hollowverse/utils` [![Build Status](https://travis-ci.org/hollowverse/utils.svg?branch=master)](https://travis-ci.org/hollowverse/utils)
 
 This package provides a set of utility functions used in multiple repositories in the Hollowverse organization for deployment and other tasks, the functions are exported from the [`./helpers`](./helpers) directory.
 
