@@ -12,7 +12,7 @@
     "lint-ts": "tslint --project ./helpers 'helpers/**/*.ts{,x}'",
     "check-ts": "tsc --project ./helpers --noEmit",
     "build/ts": "tsc --project ./helpers",
-    "build/babel": "babel --config-file .babelrc helpers -d helpers",
+    "build/babel": "babel helpers -d helpers",
     "build": "run-s clean build/ts build/babel",
     "lint-staged": "lint-staged",
     "clean": "del-cli 'helpers/**.{d.ts,js}'",
