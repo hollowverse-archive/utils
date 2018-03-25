@@ -1,4 +1,8 @@
-import { executeCommand, Command } from './executeCommand';
+import {
+  executeCommand,
+  Command,
+  ExecuteCommandOptions,
+} from './executeCommand';
 
 /**
  * A helper function that executes shell commands or JavaScript functions.
@@ -8,9 +12,12 @@ import { executeCommand, Command } from './executeCommand';
  * on the first error. If the command is a shell command, the error message
  * will be stderr of the command.
  */
-export async function executeCommands(commands: Command[]): Promise<void> {
+export async function executeCommands(
+  commands: Command[],
+  executeCommandOptions?: ExecuteCommandOptions,
+): Promise<void> {
   for (const command of commands) {
-    await executeCommand(command);
+    await executeCommand(command, executeCommandOptions);
   }
 }
 
