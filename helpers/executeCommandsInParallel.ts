@@ -1,4 +1,9 @@
-import { executeCommand, Command } from './executeCommand';
+import {
+  executeCommand,
+  Command,
+  ExecuteCommandOptions,
+} from './executeCommand';
+import bluebird from 'bluebird';
 
 /**
  * Executes JS functions or shell commands in parallel and returns 1 as soon
@@ -7,9 +12,21 @@ import { executeCommand, Command } from './executeCommand';
  * @param commands The shell commands or JavaScript functions to
  * execute in parallel
  */
-export function executeCommandsInParallel(commands: Command[]) {
+export async function executeCommandsInParallel(
+  commands: Command[],
+  {
+    concurrency = 3,
+    ...restOptions
+  }: ExecuteCommandOptions & { concurrency?: number },
+) {
   // Promise.all rejects as soon as one promise rejects
-  return Promise.all(commands.map(executeCommand));
+  bluebird.map(
+    commands,
+    async command => executeCommand(command, restOptions),
+    {
+      concurrency,
+    },
+  );
 }
 
 export default executeCommandsInParallel;

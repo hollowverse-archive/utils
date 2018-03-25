@@ -11,7 +11,10 @@ export type Secret = {
  * @param secrets Array of secret definitions
  * @param baseDirectory The full path to the directory containing the encrypted secrets
  */
-export function decryptSecrets(secrets: Secret[], baseDirectory = './secrets') {
+export async function decryptSecrets(
+  secrets: Secret[],
+  baseDirectory = './secrets',
+) {
   return executeCommands(
     secrets.map(secret => {
       const { password, decryptedFilename } = secret;
