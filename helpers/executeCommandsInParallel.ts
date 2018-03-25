@@ -19,8 +19,7 @@ export async function executeCommandsInParallel(
     ...restOptions
   }: ExecuteCommandOptions & { concurrency?: number } = {},
 ) {
-  // Promise.all rejects as soon as one promise rejects
-  bluebird.map(
+  await bluebird.map(
     commands,
     async command => executeCommand(command, restOptions),
     {
