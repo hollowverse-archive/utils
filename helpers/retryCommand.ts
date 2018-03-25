@@ -1,4 +1,8 @@
-import { executeCommand, Command } from './executeCommand';
+import {
+  executeCommand,
+  Command,
+  ExecuteCommandOptions,
+} from './executeCommand';
 
 /**
  * Retries a JS or shell command multiple times before giving up.
@@ -6,11 +10,15 @@ import { executeCommand, Command } from './executeCommand';
  * the JS function must return a number. `0` indicates success, any other value indicates failure.
  * @param maxNumAttempts How many times should the `command` be retried
  */
-export async function retryCommand(command: Command, maxNumAttempts = 5) {
+export async function retryCommand(
+  command: Command,
+  maxNumAttempts = 5,
+  executeCommandOptions?: ExecuteCommandOptions,
+) {
   let numAttempts = 0;
   while (numAttempts < maxNumAttempts) {
     try {
-      await executeCommand(command);
+      await executeCommand(command, executeCommandOptions);
       break;
     } catch (e) {
       numAttempts += 1;
