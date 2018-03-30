@@ -48,16 +48,18 @@ export const parseBooleanEnvVariable = (variable: string | undefined) => {
  * };
  * ```
  */
-export const createConditionalWithFallback = (
-  condition: boolean,
-  defaultFallback = undefined,
-) => (value: any[] | object | string, fallback = defaultFallback) => {
-  if (Array.isArray(value)) {
-    return condition ? compact(value) : fallback || [];
-  }
+export function createConditionalWithFallback(condition: boolean) {
+  return <T, F = undefined>(
+    value: T,
+    fallback?: F,
+  ): T extends any[] ? NonNullable<T | F | any[]> : T | F => {
+    if (Array.isArray(value)) {
+      return (condition ? compact(value) : fallback || []) as any;
+    }
 
-  return condition ? value : fallback;
-};
+    return (condition ? value : fallback) as any;
+  };
+}
 
 export const isTest = process.env.NODE_ENV === 'test';
 
