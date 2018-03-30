@@ -1,6 +1,6 @@
 {
   "name": "@hollowverse/utils",
-  "version": "4.1.0",
+  "version": "4.1.1",
   "description": "Common helper functions and code quality scripts for Hollowverse repos",
   "repository": "https://github.com/hollowverse/utils",
   "license": "Unlicense",
@@ -54,7 +54,7 @@
     "eslint-plugin-react": "^7.6.1",
     "husky": "^0.15.0-rc.8",
     "lint-staged": "^7.0.0",
-    "prettier": "^1.10.2",
+    "prettier": "^1.11.1",
     "rxjs-tslint-rules": "^3.12.0",
     "stylelint": "^8.0.0",
     "stylelint-config-standard": "^17.0.0",
@@ -64,7 +64,7 @@
     "tslint-eslint-rules": "^5.0.0",
     "tslint-microsoft-contrib": "^5.0.3",
     "tslint-react": "^3.5.1",
-    "typescript": "^2.7.2",
+    "typescript": "^2.8.1",
     "typescript-eslint-parser": "^14.0.0"
   },
   "devDependencies": {
@@ -93,7 +93,7 @@
     "husky": "^0.15.0-rc.8",
     "lint-staged": "^7.0.0",
     "npm-run-all": "^4.0.2",
-    "prettier": "^1.10.2",
+    "prettier": "^1.11.1",
     "rxjs": "^5.0.0",
     "rxjs-tslint-rules": "^3.14.0",
     "stylelint": "^8.0.0",
@@ -104,7 +104,7 @@
     "tslint-eslint-rules": "^5.0.0",
     "tslint-microsoft-contrib": "^5.0.3",
     "tslint-react": "^3.5.1",
-    "typescript": "^2.7.2",
+    "typescript": "^2.8.1",
     "typescript-eslint-parser": "^14.0.0",
     "yarnhook": "^0.1.1"
   },
