@@ -1,2 +1,4 @@
 helpers/**/*.ts
 !helpers/**/*.d.ts
+.nvmrc
+.travis.yml
