@@ -52,7 +52,7 @@ export function createConditionalWithFallback(condition: boolean) {
   return <T, F = undefined>(
     value: T,
     fallback?: F,
-  ): T extends any[] ? NonNullable<T | F | any[]> : T | F => {
+  ): T extends any[] ? NonFalsey<T | F | any[]> : T | F => {
     if (Array.isArray(value)) {
       return (condition ? compact(value) : fallback || []) as any;
     }
@@ -60,6 +60,8 @@ export function createConditionalWithFallback(condition: boolean) {
     return (condition ? value : fallback) as any;
   };
 }
+
+type NonFalsey<T> = T extends (false | '' | 0) ? never : NonNullable<T>;
 
 export const isTest = process.env.NODE_ENV === 'test';
 
