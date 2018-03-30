@@ -1,31 +1,6 @@
-import {
-  executeCommand,
-  Command,
-  ExecuteCommandOptions,
-} from './executeCommand';
-import bluebird from 'bluebird';
+import { executeCommandsConcurrently } from './executeCommandsConcurrently';
 
-/**
- * Executes JS functions or shell commands in parallel and returns 1 as soon
- * as one command or function fails.
- * Supports asynchronous functions.
- * @param commands The shell commands or JavaScript functions to
- * execute in parallel
- */
-export async function executeCommandsInParallel(
-  commands: Command[],
-  {
-    concurrency = 3,
-    ...restOptions
-  }: ExecuteCommandOptions & { concurrency?: number } = {},
-) {
-  await bluebird.map(
-    commands,
-    async command => executeCommand(command, restOptions),
-    {
-      concurrency,
-    },
-  );
-}
+/** @deprecated Use `executeCommandsConcurrently` instead */
+export const executeCommandsInParallel = executeCommandsConcurrently;
 
 export default executeCommandsInParallel;

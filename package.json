@@ -1,6 +1,6 @@
 {
   "name": "@hollowverse/utils",
-  "version": "4.0.2",
+  "version": "4.1.2",
   "description": "Common helper functions and code quality scripts for Hollowverse repos",
   "repository": "https://github.com/hollowverse/utils",
   "license": "Unlicense",
