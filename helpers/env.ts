@@ -1,7 +1,7 @@
 import compact from 'lodash/compact';
 
 /**
- * Converts a environment variable to a `boolean`
+ * Converts an environment variable to a `boolean`
  * Returns `false` if the value is `"false"`, `"0"` or `undefined`.
  * Otherwise, returns `true`.
  */
@@ -23,7 +23,10 @@ export const parseBooleanEnvVariable = (variable: string | undefined) => {
  * Arrays are treated specially. If the passed `value` is an array, and the `condition`
  * evaluates to `true`, a new array is returned with all the falsey values in the original array
  * removed. If the `condition` evaluates to `false`, and the `fallback` value is falsey,
- * the fallback value will default to an empty array.
+ * the fallback value will default to an empty array. This is to make it convenient to compose
+ * configurations that expect arrays of strings or objects and be able to spread the arrays
+ * without having to worry about spreading `undefined` (`[...undefined]`)
+ * (which would be a runtime error).
  *
  * @example
  * ```javascript
