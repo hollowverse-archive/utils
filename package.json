@@ -1,6 +1,6 @@
 {
   "name": "@hollowverse/utils",
-  "version": "4.1.1",
+  "version": "0.0.0-Set-by-CI-when-publishing",
   "description": "Common helper functions and code quality scripts for Hollowverse repos",
   "repository": "https://github.com/hollowverse/utils",
   "license": "Unlicense",
@@ -13,7 +13,8 @@
     "check-ts": "tsc --project ./helpers --noEmit",
     "build/ts": "tsc --project ./helpers",
     "build/babel": "babel helpers -d helpers",
-    "build": "run-s clean build/ts build/babel",
+    "build": "run-s clean build/ts build/babel set-version",
+    "set-version": "node helpers/setVersion.js",
     "lint-staged": "lint-staged",
     "clean": "del-cli 'helpers/**.{d.ts,js}'",
     "lint": "run-p -c --aggregate-output lint-ts",
@@ -34,6 +35,9 @@
       "prettier --write",
       "git add"
     ]
+  },
+  "bin": {
+    "set-version": "./helpers/setVersion.js"
   },
   "dependencies": {
     "@babel/runtime": "^7.0.0-beta.40",
