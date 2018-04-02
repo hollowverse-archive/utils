@@ -17,7 +17,9 @@ async function setVersion() {
   const packageJson = require(packagejsonPath); // tslint:disable-line no-require-imports non-literal-require
   const version = trim(process.env.TRAVIS_TAG);
 
-  await writeJsonFile(packagejsonPath, { ...packageJson, version });
+  if (version) {
+    await writeJsonFile(packagejsonPath, { ...packageJson, version });
+  }
 }
 
 setVersion(); // tslint:disable-line no-floating-promises
