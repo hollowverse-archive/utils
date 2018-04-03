@@ -1,4 +1,3 @@
-helpers/**/*.ts
-!helpers/**/*.d.ts
+src
 .nvmrc
 .travis.yml

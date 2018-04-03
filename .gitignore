@@ -58,5 +58,8 @@ typings/
 
 # dotenv environment variables file
 .env
-helpers/**/*.js
-helpers/**/*.d.ts
+
+
+helpers/**/*
+bin/**/*
+!src/**/*
