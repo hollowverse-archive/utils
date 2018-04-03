@@ -61,6 +61,9 @@ bluebird
     await setVersion();
   })
   .catch(error => {
-    console.error('Could not set version in package.json:', error.message);
+    console.error(
+      'Could not update the version field in "package.json":',
+      error.message,
+    );
     process.exit(1);
   });
