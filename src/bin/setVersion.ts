@@ -10,11 +10,20 @@ import { stripIndent } from 'common-tags';
  * version specified before they are published.
  *
  * The script sets `version` key in `package.json` during deployment to the
- * value of `TRAVIS_TAG`. That way we don't have to remember to set the version
+ * value passed via the CLI command:
+ *
+ * ```shell
+ * yarn set-version 1.4.5
+ * ```
+ *
+ * If no value is not passed, the script will look for an
+ * environment variable named `TRAVIS_TAG`.
+ *
+ * That way we don't have to remember to set the version
  * key in `package.json` before publishing.
  *
- * If `TRAVIS_TAG` starts with a `v` such as `v4.0.2`, this script will strip out the `v`
- * to make `TRAVIS_TAG` semver-compatible.
+ * If the version number starts with a `v` such as `v4.0.2`, this script will strip out the `v`
+ * to make the version number semver-compatible.
  */
 function getVersion() {
   const version = trim(process.argv[2] || process.env.TRAVIS_TAG);
