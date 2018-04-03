@@ -1,0 +1,20 @@
+import { Context, Handler } from 'aws-lambda'; // tslint:disable-line no-implicit-dependencies
+
+/**
+ * Converts an async function to a callback-based Lambda handler.
+ * If the function completes without throwing, the callback will
+ * be called with the return value of the function (i.e. `done(null, returnValue)`).
+ * If the function throws, the callback will be called with the error (i.e. `done(error)`).
+ */
+export function createLambdaHandler<E, R>(
+  handleEvent: (event: E, context: Context) => Promise<R>,
+): Handler<E, R> {
+  return async (event, context, done) => {
+    try {
+      done(null, await handleEvent(event, context));
+    } catch (e) {
+      console.error(e);
+      done(e);
+    }
+  };
+}

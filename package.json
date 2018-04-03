@@ -41,6 +41,7 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.0.0-beta.40",
+    "@types/aws-lambda": "^0.0.34",
     "bluebird": "^3.5.1",
     "glob": "^7.1.2",
     "jszip": "^3.1.4",
