@@ -48,6 +48,7 @@ async function setVersion() {
         yarn set-version 1.4.5
       
       or that you have an environment variable named "$TRAVIS_TAG"
+      with the version number as its value.
     `);
   }
 
