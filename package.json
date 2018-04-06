@@ -67,7 +67,6 @@
     "@types/minimatch": "^3.0.0",
     "@types/node": "^8.0.24",
     "@types/shelljs": "^0.7.4",
-    "babel-eslint": "^8.2.1",
     "del-cli": "^1.1.0",
     "eslint": "^4.18.0",
     "husky": "^0.15.0-rc.8",
