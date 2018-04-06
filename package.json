@@ -8,7 +8,7 @@
     "access": "public"
   },
   "scripts": {
-    "validate-filenames": "validate-filenames",
+    "validate-filenames": "validate-filenames --config validateFilenames.js",
     "lint-ts": "tslint --project ./src 'src/**/*.ts{,x}'",
     "check-ts": "tsc --project ./src --noEmit",
     "build/ts": "tsc --project ./src",
@@ -18,14 +18,17 @@
     "lint-staged": "lint-staged",
     "clean": "del-cli helpers bin",
     "lint": "run-p -c --aggregate-output lint-ts",
-    "pretest": "run-p -c --aggregate-output lint validate-filenames lint-staged",
+    "pretest": "run-p -c --aggregate-output lint validate-filenames lint-staged 'clown check'",
     "test": "run-p --aggregate-output -l check-ts",
-    "clown": "clown"
+    "clown": "clown",
+    "pre-push": "yarn test",
+    "pre-commit": "yarn pretest",
+    "tslint": "yarn lint-ts"
   },
   "husky": {
     "hooks": {
-      "pre-commit": "yarn pretest",
-      "pre-push": "yarn test",
+      "pre-commit": "yarn pre-commit",
+      "pre-push": "yarn pre-push",
       "post-merge": "yarnhook",
       "post-checkout": "yarnhook",
       "post-rewrite": "yarnhook"
@@ -35,6 +38,17 @@
     "**/*.{j,t}s{x,}": [
       "prettier --write",
       "git add"
+    ],
+    "**/*.md": [
+      "prettier --write",
+      "git add"
+    ],
+    "**/!(package).json": [
+      "prettier --write",
+      "git add"
+    ],
+    "**/*.js{x,}": [
+      "eslint"
     ]
   },
   "bin": {
@@ -58,7 +72,7 @@
     "@babel/preset-env": "^7.0.0-beta.44",
     "@hollowverse/clown": "^0.0.3",
     "@hollowverse/config": "^6.1.0",
-    "@hollowverse/validate-filenames": "^1.3.9",
+    "@hollowverse/validate-filenames": "^1.4.0",
     "@types/bluebird": "^3.5.20",
     "@types/common-tags": "^1.4.0",
     "@types/glob": "^5.0.32",
@@ -68,16 +82,28 @@
     "@types/node": "^8.0.24",
     "@types/shelljs": "^0.7.4",
     "del-cli": "^1.1.0",
-    "eslint": "^4.18.0",
+    "eslint": "^4.18.2",
     "husky": "^0.15.0-rc.8",
     "lint-staged": "^7.0.0",
     "npm-run-all": "^4.0.2",
-    "prettier": "^1.11.1",
+    "prettier": "^1.10.2",
     "tslint": "^5.9.1",
     "typescript": "^2.8.1",
-    "yarnhook": "^0.1.1"
+    "yarnhook": "^0.1.1",
+    "@babel/node": "^7.0.0-beta.44"
   },
   "engines": {
     "node": ">= 6.10"
+  },
+  "private": false,
+  "jest": {
+    "globals": {
+      "ts-jest": {
+        "useBabelrc": true
+      }
+    }
+  },
+  "resolutions": {
+    "babel-core": "^7.0.0-bridge.0"
   }
 }
