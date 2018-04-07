@@ -565,9 +565,9 @@
     fast-extend "0.0.2"
     fs-monkey "^0.3.0"
 
-"@hollowverse/clown@^0.0.3":
-  version "0.0.3"
-  resolved "https://registry.yarnpkg.com/@hollowverse/clown/-/clown-0.0.3.tgz#afc4f38b073a47c2dcbda46a0178476e6bf5cd6f"
+"@hollowverse/clown@^0.0.4":
+  version "0.0.4"
+  resolved "https://registry.yarnpkg.com/@hollowverse/clown/-/clown-0.0.4.tgz#e4876b51a24d042cd1779e3bc94ba131430d6d81"
   dependencies:
     "@babel/polyfill" "^7.0.0-beta.42"
     "@babel/runtime" "^7.0.0-beta.42"
