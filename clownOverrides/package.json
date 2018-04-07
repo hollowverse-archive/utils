@@ -7,5 +7,6 @@
     "pre-commit": "yarn pretest",
     "pre-push": "yarn test",
     "tslint": "yarn lint-ts"
-  }
+  },
+  "jest": null
 }

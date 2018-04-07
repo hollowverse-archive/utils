@@ -96,13 +96,7 @@
     "node": ">= 6.10"
   },
   "private": false,
-  "jest": {
-    "globals": {
-      "ts-jest": {
-        "useBabelrc": true
-      }
-    }
-  },
+  "jest": null,
   "resolutions": {
     "babel-core": "^7.0.0-bridge.0"
   }
