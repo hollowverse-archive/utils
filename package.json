@@ -14,7 +14,6 @@
     "build/ts": "tsc --project ./src",
     "build/babel": "babel helpers -d helpers && babel bin -d bin",
     "build": "run-s clean build/ts build/babel",
-    "set-version": "node bin/setVersion.js",
     "lint-staged": "lint-staged",
     "clean": "del-cli helpers bin",
     "lint": "run-p -c --aggregate-output lint-ts",
