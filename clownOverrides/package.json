@@ -2,7 +2,6 @@
   "scripts": {
     "check-ts": "tsc --project ./src --noEmit",
     "build": "run-s clean build/ts build/babel",
-    "set-version": "node bin/setVersion.js",
     "test": "run-p --aggregate-output -l check-ts",
     "pre-commit": "yarn pretest",
     "pre-push": "yarn test",
