@@ -5,7 +5,6 @@
     "test": "run-p --aggregate-output -l check-ts",
     "pre-commit": "yarn pretest",
     "pre-push": "yarn test",
-    "tslint": "yarn lint-ts"
-  },
-  "jest": null
+    "lint-ts": "tslint --project ./src 'src/**/*.ts{,x}'"
+  }
 }

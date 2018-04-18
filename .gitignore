@@ -58,8 +58,25 @@ typings/
 
 # dotenv environment variables file
 .env
-
-
 helpers/**/*
 bin/**/*
 !src/**/*
+# Builds
+dist
+
+secrets/**/*
+!secrets/**/*.enc
+!secrets/**/*.d.ts
+
+build.zip
+build
+
+# Elastic Beanstalk Files
+.elasticbeanstalk/*
+!.elasticbeanstalk/*.cfg.yml
+!.elasticbeanstalk/*.global.yml
+
+# Created by Serverless
+.build
+.webpack
+.serverless
