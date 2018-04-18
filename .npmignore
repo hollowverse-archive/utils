@@ -1,3 +1,6 @@
 src
 .nvmrc
 .travis.yml
+
+node_modules
+!.gitignore
