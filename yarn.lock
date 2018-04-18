@@ -683,9 +683,9 @@
     fast-extend "0.0.2"
     fs-monkey "^0.3.0"
 
-"@hollowverse/clown@^3.0.0":
-  version "3.0.0"
-  resolved "https://registry.yarnpkg.com/@hollowverse/clown/-/clown-3.0.0.tgz#8f9e1b235703c80717695e46282d6ee1e1bcb9da"
+"@hollowverse/clown@^3.0.1":
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/@hollowverse/clown/-/clown-3.0.1.tgz#cb49233eefb843552cc1774436d9b3bf13f6840d"
   dependencies:
     "@babel/polyfill" "^7.0.0-beta.44"
     "@babel/runtime" "^7.0.0-beta.44"
@@ -701,13 +701,13 @@
     lodash "^4.17.4"
     sort-keys "^2.0.0"
 
-"@hollowverse/config@^20.0.0":
-  version "20.0.0"
-  resolved "https://registry.yarnpkg.com/@hollowverse/config/-/config-20.0.0.tgz#613401fd058633cd6fa90f8954c601cd32943fb3"
+"@hollowverse/config@^24.0.0":
+  version "24.0.0"
+  resolved "https://registry.yarnpkg.com/@hollowverse/config/-/config-24.0.0.tgz#61aa67b12086b8d410f1534f79d8c95933801057"
 
-"@hollowverse/validate-filenames@^3.0.1":
-  version "3.0.1"
-  resolved "https://registry.yarnpkg.com/@hollowverse/validate-filenames/-/validate-filenames-3.0.1.tgz#a3a6fe488162d19d256e2cc5fa093af16e1b1aff"
+"@hollowverse/validate-filenames@^3.0.2":
+  version "3.0.2"
+  resolved "https://registry.yarnpkg.com/@hollowverse/validate-filenames/-/validate-filenames-3.0.2.tgz#60610109b63bed5285f3435e32ce721c5f623f1d"
   dependencies:
     "@babel/polyfill" "^7.0.0-beta.44"
     "@babel/runtime" "^7.0.0-beta.44"
