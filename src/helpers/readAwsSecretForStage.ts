@@ -1,6 +1,6 @@
 import { SecretsManager } from 'aws-sdk';
 import { snakeCase } from 'lodash';
-import { oneLine } from 'common-tags';
+import { stripIndent } from 'common-tags';
 
 type ReadAwsSecretOrFallbackOptions = {
   stage?: string;
@@ -36,11 +36,12 @@ export const readAwsSecretForStage = async <T = string>(
 
   if (process.env.NODE_ENV !== 'production' && stage === 'local') {
     if (fallback === undefined) {
-      console.warn(oneLine`
-        Could not find a fallback value for AWS Secret "${secretName}".
+      console.warn(stripIndent`
+        [WARN] Could not find a fallback value for AWS Secret "${secretName}".
         If you want to test functionality that depends on this secret locally,
-        pass the secret as an environment variable "${fallbackEnvVariableName}".
+        pass the secret as an environment variable named "${fallbackEnvVariableName}".
       `);
+      console.warn('\n');
     }
 
     return fallback;
