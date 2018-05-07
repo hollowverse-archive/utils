@@ -2,7 +2,7 @@ import { SecretsManager } from 'aws-sdk';
 import { snakeCase } from 'lodash';
 import { stripIndent } from 'common-tags';
 
-type ReadAwsSecretOrFallbackOptions = {
+type ReadAwsSecretForStageOptions = {
   stage?: string;
   secretsManager?: SecretsManager;
   isJson?: boolean;
@@ -29,7 +29,7 @@ export const readAwsSecretForStage = async <T = string>(
     stage = process.env.STAGE || 'local',
     secretsManager = defaultSecretsManager,
     isJson = false,
-  }: ReadAwsSecretOrFallbackOptions = {},
+  }: ReadAwsSecretForStageOptions = {},
 ) => {
   const fallbackEnvVariableName = snakeCase(secretName).toUpperCase();
   const fallback = process.env[fallbackEnvVariableName];
