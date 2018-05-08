@@ -47,7 +47,8 @@ export const readAwsSecretForStage = async <T = string>(
       console.warn(stripIndent`
         [WARN] Could not find a fallback value for AWS Secret "${secretName}".
         If you want to test functionality that depends on this secret locally,
-        pass the secret as an environment variable named "${fallbackEnvVariableName}".
+        provide a value for this secret as an environment variable named
+        "${fallbackEnvVariableName}".
       `);
       console.warn('\n');
     }
