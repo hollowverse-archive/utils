@@ -11,18 +11,25 @@ export type ReadAwsSecretForStageOptions = {
 const defaultSecretsManager = new SecretsManager();
 
 /**
- * Access a secret string stored in AWS Secrets Manager by the secret's friendly
- * name.
- * The full secret name should follow the convention `stage/secretName`.
- * The stage is automatically prepended to the secret name following so you
- * only have to provide the actual secret name.
- * If no `stage` is provided, it will try to read the stage from `process.env.STAGE`.
- * A fallback value will be used if the secret is not found or if the stage is
- * not specified.
+ * Reads a secret from AWS Secrets Manager by its friendly name.
  *
- * Note: this function only supports secrets stored as string. It does not support
+ * The full secret name should follow the convention `stage/secretName`.
+ *
+ * The secret names passed to this function should not be prefixed
+ * with the stage name. For example, if the stored secret name is
+ * `production/github/accessToken`, the secret name passed to this
+ * function should be just `github/accessToken`.
+ *
+ * The stage is automatically read from the `stage` option
+ * or from `process.env.STAGE` and prepended to the secret name
+ * before it's fetched.
+ *
+ * Note: this function only supports secrets stored as strings. It does not support
  * binary secrets. Also, if the string returned is JSON, you can set the `isJson`
  * option to get the parsed JSON object instead of having to parse it manually.
+ *
+ * @param secretName The friendly name of the secret, i.e. `github/accessToken`,
+ * without the stage prefix.
  */
 export const readAwsSecretForStage = async <T = string>(
   secretName: string,
