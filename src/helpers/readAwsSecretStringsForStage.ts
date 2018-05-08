@@ -1,8 +1,8 @@
 import bluebird from 'bluebird';
 import {
-  ReadAwsSecretForStageOptions,
-  readAwsSecretForStage,
-} from './readAwsSecretForStage';
+  ReadAwsSecretStringForStageOptions,
+  readAwsSecretStringForStage,
+} from './readAwsSecretStringForStage';
 import { zipObject } from 'lodash';
 
 /**
@@ -22,21 +22,20 @@ import { zipObject } from 'lodash';
  * before it's fetched.
  *
  * Note: this function only supports secrets stored as strings. It does not support
- * binary secrets. Also, if the string returned is JSON, you can set the `isJson`
- * option to get the parsed JSON object instead of having to parse it manually.
+ * binary secrets.
  *
  * @param secretNames The friendly names of the secrets, i.e. `github/accessToken`,
  * without the stage prefix.
  * @param options Options passed to this function apply to _all_ secrets.
- * @see `readAwsSecretForStage`
+ * @see `readAwsSecretStringForStage`
  */
 export const readAwsSecretsForStage = async <SecretName extends string>(
   secretNames: SecretName[],
-  options: ReadAwsSecretForStageOptions = {},
+  options: ReadAwsSecretStringForStageOptions = {},
 ) => {
   const values = await bluebird.map<string, string | undefined>(
     secretNames,
-    async secretName => readAwsSecretForStage(secretName, options),
+    async secretName => readAwsSecretStringForStage(secretName, options),
   );
 
   return zipObject(secretNames, values) as Record<
