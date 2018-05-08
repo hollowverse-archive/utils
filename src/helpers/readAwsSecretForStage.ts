@@ -2,7 +2,7 @@ import { SecretsManager } from 'aws-sdk';
 import { snakeCase } from 'lodash';
 import { stripIndent } from 'common-tags';
 
-type ReadAwsSecretForStageOptions = {
+export type ReadAwsSecretForStageOptions = {
   stage?: string;
   secretsManager?: SecretsManager;
   isJson?: boolean;
@@ -21,7 +21,8 @@ const defaultSecretsManager = new SecretsManager();
  * not specified.
  *
  * Note: this function only supports secrets stored as string. It does not support
- * binary secrets. Also, if the string returned is JSON
+ * binary secrets. Also, if the string returned is JSON, you can set the `isJson`
+ * option to get the parsed JSON object instead of having to parse it manually.
  */
 export const readAwsSecretForStage = async <T = string>(
   secretName: string,
