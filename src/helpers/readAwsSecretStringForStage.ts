@@ -2,10 +2,9 @@ import { SecretsManager } from 'aws-sdk';
 import { snakeCase } from 'lodash';
 import { stripIndent } from 'common-tags';
 
-export type ReadAwsSecretForStageOptions = {
+export type ReadAwsSecretStringForStageOptions = {
   stage?: string;
   secretsManager?: SecretsManager;
-  isJson?: boolean;
 };
 
 const defaultSecretsManager = new SecretsManager();
@@ -25,19 +24,17 @@ const defaultSecretsManager = new SecretsManager();
  * before it's fetched.
  *
  * Note: this function only supports secrets stored as strings. It does not support
- * binary secrets. Also, if the string returned is JSON, you can set the `isJson`
- * option to get the parsed JSON object instead of having to parse it manually.
+ * binary secrets.
  *
  * @param secretName The friendly name of the secret, i.e. `github/accessToken`,
  * without the stage prefix.
  */
-export const readAwsSecretForStage = async <T = string>(
+export const readAwsSecretStringForStage = async (
   secretName: string,
   {
     stage = process.env.STAGE || 'local',
     secretsManager = defaultSecretsManager,
-    isJson = false,
-  }: ReadAwsSecretForStageOptions = {},
+  }: ReadAwsSecretStringForStageOptions = {},
 ) => {
   const fallbackEnvVariableName = snakeCase(secretName).toUpperCase();
   const fallback = process.env[fallbackEnvVariableName];
@@ -62,11 +59,5 @@ export const readAwsSecretForStage = async <T = string>(
     })
     .promise();
 
-  const rawSecret = response.SecretString || fallback;
-
-  if (typeof rawSecret === 'string' && isJson) {
-    return JSON.parse(rawSecret) as T;
-  }
-
-  return rawSecret as T | undefined;
+  return response.SecretString || fallback;
 };
