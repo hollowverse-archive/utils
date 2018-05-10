@@ -58,7 +58,6 @@
   "dependencies": {
     "@babel/polyfill": "^7.0.0-beta.44",
     "@babel/runtime": "^7.0.0-beta.44",
-    "@types/aws-lambda": "^0.0.34",
     "bluebird": "^3.5.1",
     "common-tags": "^1.7.2",
     "glob": "^7.1.2",
@@ -79,6 +78,7 @@
     "@hollowverse/clown": "^3.0.1",
     "@hollowverse/config": "^24.0.0",
     "@hollowverse/validate-filenames": "^3.0.2",
+    "@types/aws-lambda": "^0.0.34",
     "@types/bluebird": "^3.5.20",
     "@types/common-tags": "^1.4.0",
     "@types/glob": "^5.0.32",
@@ -87,7 +87,7 @@
     "@types/minimatch": "^3.0.0",
     "@types/node": "^8.0.24",
     "@types/shelljs": "^0.7.4",
-    "aws-sdk": "^2.205.0",
+    "aws-sdk": "^2.235.1",
     "babel-eslint": "^8.2.2",
     "del-cli": "^1.1.0",
     "eslint": "^4.19.1",
@@ -118,6 +118,6 @@
     "babel-core": "^7.0.0-bridge.0"
   },
   "peerDependencies": {
-    "aws-sdk": "^2.205.0"
+    "aws-sdk": "^2.235.1"
   }
 }
