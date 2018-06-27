@@ -1,4 +1,3 @@
-/* eslint-disable import/no-extraneous-dependencies */
 const { omit } = require('lodash');
 
 module.exports = clownFs => {

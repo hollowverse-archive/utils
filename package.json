@@ -78,7 +78,7 @@
     "@babel/preset-stage-3": "^7.0.0-beta.46",
     "@commitlint/cli": "^6.1.3",
     "@hollowverse/clown": "^3.2.0",
-    "@hollowverse/config": "^24.0.0",
+    "@hollowverse/config": "^40.0.0",
     "@hollowverse/validate-filenames": "^3.0.2",
     "@types/aws-lambda": "^0.0.34",
     "@types/bluebird": "^3.5.20",
