@@ -115,7 +115,7 @@
     "yarnhook": "^0.2.0"
   },
   "engines": {
-    "node": ">= 6.10"
+    "node": ">= 8.10"
   },
   "private": false,
   "resolutions": {
