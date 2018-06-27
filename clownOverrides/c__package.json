@@ -2,9 +2,8 @@
   "scripts": {
     "check-ts": "tsc --project ./src --noEmit",
     "build": "run-s clean build/ts build/babel",
-    "test": "run-p --aggregate-output -l check-ts",
+    "test": "run-p --aggregate-output -c check-ts",
     "pre-commit": "yarn pretest",
-    "pre-push": "yarn test",
-    "lint-ts": "tslint --project ./src 'src/**/*.ts{,x}'"
+    "pre-push": "yarn test"
   }
 }

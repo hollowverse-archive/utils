@@ -7,5 +7,3 @@ export async function writeJsonFile(
 ) {
   return writeFile(path, JSON.stringify(data, undefined, 2), options);
 }
-
-export default writeJsonFile;

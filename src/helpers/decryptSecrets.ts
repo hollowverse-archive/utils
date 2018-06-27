@@ -40,5 +40,3 @@ export async function decryptSecrets(
     }),
   );
 }
-
-export default decryptSecrets;

@@ -36,5 +36,3 @@ export async function createZipFile(
       .on('error', reject);
   });
 }
-
-export default createZipFile;

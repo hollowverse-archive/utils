@@ -18,6 +18,7 @@ export async function retryCommand(
   let numAttempts = 0;
   while (numAttempts < maxNumAttempts) {
     try {
+      /* eslint-disable-next-line no-await-in-loop */
       await executeCommand(command, executeCommandOptions);
       break;
     } catch (e) {
@@ -28,5 +29,3 @@ export async function retryCommand(
     }
   }
 }
-
-export default retryCommand;

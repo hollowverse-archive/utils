@@ -1,18 +1,31 @@
 {
   "typescript.tsdk": "node_modules/typescript/lib",
-  "cSpell.words": ["hollowverse", "loglevel", "promisify", "webpagetest"],
+  "cSpell.words": [
+    "hollowverse",
+    "loglevel",
+    "promisify",
+    "webpagetest",
+    "unhandledrejection"
+  ],
   "editor.tabSize": 2,
   "editor.formatOnSave": true,
-  "[json]": {
-    "editor.formatOnSave": false
-  },
   "typescript.implementationsCodeLens.enabled": true,
   "typescript.referencesCodeLens.enabled": true,
   "files.associations": {
     ".gqlconfig": "javascript",
-    ".stylelintrc": "json"
+    ".stylelintrc": "json",
+    "**/.babelrc": "jsonc",
+    "**/.babelrc.json": "jsonc",
+    "**/tslint.json": "jsonc",
+    "**/tsconfig.json": "jsonc",
+    "**/.eslintrc.json": "jsonc",
+    "**/.prettierignore": "gitignore"
   },
   "files.exclude": {
     "**/node_modules/**": true
-  }
+  },
+  "eslint.options": {
+    "reportUnusedDisableDirectives": true
+  },
+  "eslint.validate": ["typescript", "typescriptreact"]
 }
