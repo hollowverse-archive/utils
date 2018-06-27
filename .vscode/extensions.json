@@ -1,7 +1,6 @@
 {
   "recommendations": [
     "streetsidesoftware.code-spell-checker",
-    "eg2.tslint",
     "esbenp.prettier-vscode",
     "christian-kohler.path-intellisense",
     "christian-kohler.npm-intellisense",
@@ -9,6 +8,9 @@
     "eamodio.gitlens",
     "EditorConfig.editorconfig",
     "kisstkondoros.csstriggers",
-    "dbaeumer.vscode-eslint"
+    "dbaeumer.vscode-eslint",
+    "codezombiech.gitignore",
+    "pflannery.vscode-versionlens",
+    "eg2.ts-tslint"
   ]
 }

@@ -29,7 +29,7 @@ import { zipObject } from 'lodash';
  * @param options Options passed to this function apply to _all_ secrets.
  * @see `readAwsSecretStringForStage`
  */
-export const readAwsSecretsForStage = async <SecretName extends string>(
+export const readAwsSecretStringsForStage = async <SecretName extends string>(
   secretNames: SecretName[],
   options: ReadAwsSecretStringForStageOptions = {},
 ) => {

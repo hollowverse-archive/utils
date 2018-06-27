@@ -27,5 +27,3 @@ export async function executeCommandsConcurrently(
     },
   );
 }
-
-export default executeCommandsConcurrently;

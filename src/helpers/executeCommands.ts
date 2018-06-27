@@ -17,8 +17,7 @@ export async function executeCommands(
   executeCommandOptions?: ExecuteCommandOptions,
 ): Promise<void> {
   for (const command of commands) {
+    /* eslint-disable-next-line no-await-in-loop */
     await executeCommand(command, executeCommandOptions);
   }
 }
-
-export default executeCommands;
